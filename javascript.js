@@ -15,6 +15,7 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
+    if (b === 0) return "Cannot divide by zero";
     return a / b;
 }
 
@@ -27,6 +28,7 @@ function operate(operator, a, b) {
         return multiply(a, b);
     } else if (operator === '/') {
         return divide(a, b);
-    }
+    } else {
+        return "Invalid operator";
     }
 }
