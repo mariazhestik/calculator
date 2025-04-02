@@ -92,7 +92,16 @@ function inputNumber(number) {
 function getOperator(selectedOperator) {
     if (currentInput === '') return;
 
-    number1 = parseFloat(currentInput);
+    if (number1 !== 0 && operator !== '') {
+        number2 = parseFloat(currentInput);
+        const result = operate(operator, number1, number2);
+        updateDisplay(result);
+        currentInput = result.toString();
+        number1 = parseFloat(currentInput);
+    } else {
+        number1 = parseFloat(currentInput);
+    }
+
     operator = selectedOperator;
     currentInput = '';
 }
