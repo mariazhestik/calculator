@@ -60,13 +60,13 @@ button7.addEventListener('click', () => inputNumber(button7.textContent));
 button8.addEventListener('click', () => inputNumber(button8.textContent));
 button9.addEventListener('click', () => inputNumber(button9.textContent));
 
-equalOp.addEventListener('click', () => getOperator(equalOp.textContent));
+equalOp.addEventListener('click', calculateResult);
 addOp.addEventListener('click', () => getOperator(equalOp.textContent));
 substractOp.addEventListener('click', () => getOperator(equalOp.textContent));
 multiplyOp.addEventListener('click', () => getOperator(equalOp.textContent));
 divideOp.addEventListener('click', () => getOperator(equalOp.textContent));
 
-function updateDisplay() {
+function updateDisplay(value) {
     const display = document.querySelector(".current-screen");
     display.textContent = value;
 }
@@ -74,4 +74,23 @@ function updateDisplay() {
 function inputNumber(number) {
     currentInput += number;
     updateDisplay(currentInput);
+}
+
+function getOperator(selectedOperator) {
+    if (currentInput === '') return;
+
+    number1 = parseFloat(currentInput);
+    operator = selectedOperator;
+    currentInput = '';
+}
+
+function calculateResult() {
+    if (currentInput === '' || selectedOperator === '') return;
+
+    number2 = parseFloat(currentInput);
+    const result = operate(operator, number1, number2);
+
+    updateDisplay(result);
+    currentInput = result.toString();
+    operator = '';
 }
