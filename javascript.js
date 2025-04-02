@@ -99,23 +99,19 @@ function getOperator(selectedOperator) {
         return;
     };
 
-    if (currentInput !== '') {
-        operator = selectedOperator;
-        currentInput = '';
-    }
-
-    if (number1 !== 0 && operator !== '') {
+    if (number1 !== 0 && currentInput !== '') {
         number2 = parseFloat(currentInput);
         const result = operate(operator, number1, number2);
         updateDisplay(result);
-        currentInput = result.toString();
-        number1 = parseFloat(currentInput);
+
+        number1 = result;
+        currentInput = '';
     } else {
         number1 = parseFloat(currentInput);
+        currentInput = '';
     }
 
     operator = selectedOperator;
-    currentInput = '';
 }
 
 function calculateResult() {
