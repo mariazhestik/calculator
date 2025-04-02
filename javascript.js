@@ -16,7 +16,7 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-    if (b === 0) return "Cannot divide by zero";
+    if (b === 0) return "Error";
     return a / b;
 }
 
@@ -85,12 +85,24 @@ function clearCalculator() {
 }
 
 function inputNumber(number) {
-    currentInput += number;
+    if (currentInput === '0' || currentInput === '' || !operator) {
+        currentInput = number;
+    } else {
+        currentInput += number;
+    }
     updateDisplay(currentInput);
 }
 
 function getOperator(selectedOperator) {
-    if (currentInput === '') return;
+    if (currentInput === '') {
+        operator = selectedOperator;
+        return;
+    };
+
+    if (currentInput !== '') {
+        operator = selectedOperator;
+        currentInput = '';
+    }
 
     if (number1 !== 0 && operator !== '') {
         number2 = parseFloat(currentInput);
@@ -112,7 +124,9 @@ function calculateResult() {
     number2 = parseFloat(currentInput);
     const result = operate(operator, number1, number2);
 
-    updateDisplay(result);
+    const roundResult = Math.round(result * 100) / 100;
+
+    updateDisplay(roundResult);
     currentInput = result.toString();
     operator = '';
 }
