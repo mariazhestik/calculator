@@ -32,3 +32,18 @@ function operate(operator, a, b) {
         return "Invalid operator";
     }
 }
+
+const button1 = document.querySelector(".btn1");
+const button2 = document.querySelector(".btn2");
+const button3 = document.querySelector(".btn3");
+const button4 = document.querySelector(".btn4");
+const button5 = document.querySelector(".btn5");
+const button6 = document.querySelector(".btn6");
+const button7 = document.querySelector(".btn7");
+const button8 = document.querySelector(".btn8");
+const button9 = document.querySelector(".btn9");
+const equalOp = document.querySelector(".equal");
+const addOp = document.querySelector(".add");
+const substractOp = document.querySelector(".substract");
+const multiplyOp = document.querySelector(".multiply");
+const divideOP = document.querySelector(".divide");
