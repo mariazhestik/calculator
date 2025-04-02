@@ -34,6 +34,14 @@ main {
     margin-bottom: 40px;
 }
 
+.current-screen {
+    font-size: 50px;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -47,6 +55,11 @@ button {
     border-radius: 50%;
     font-size: 17px;
     font-style: bold;
+
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 button.btn0 {
